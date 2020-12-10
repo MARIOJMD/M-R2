@@ -14,9 +14,7 @@ export default class App extends Component {
     alert(this.state.text2)
     alert(this.state.text1)
   }
-  changeText(){
-    console.log("Escribiendo...");
-  }
+  
   render() {
     return (
       <View style={styles.container}>
