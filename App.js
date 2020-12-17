@@ -1,57 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
+import {StatusBar} from 'expo-status-bar';
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button} from 'react-native';
+import firstView from './src/firstView.js';
+import secondView from './src/secondView.js';
+import {Actions, Scene, Router} from 'react-native-router-flux';
 
-export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      text1: "",
-      text2: ""
-    }
+const scenes = Actions.create(
+  <Scene key="root">
+    <Scene key="firstView" component={firstView} hideNavBar/>
+    <Scene key="secondView" component={secondView} hideNavBar />
+  </Scene>
+);
+
+export default class App extends Component{
+  render(){
+    return <Router scenes={scenes}></Router>
   }
-  mostrarTexto(){
-    alert(this.state.text2)
-    alert(this.state.text1)
-  }
-  
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image source={require('./assets/287849.jpg')} style={styles.bigBox}/>
-        <TextInput
-          style={styles.mediumBox} 
-          onChangeText={text1=>this.setState({text1: text1})}
-        />
-        <TextInput
-          style={styles.mediumBox}
-          onChangeText={text2=>this.setState({text2: text2})}
-        />
-        <Button
-          title="Mostrar texto"
-          color="#9b9b9b"
-          onPress={()=>this.mostrarTexto()}
-        />
-      </View>
-    );
- }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  bigBox: {
-    width: 300,
-    height: 125,
- },
-  mediumBox: {
-    width: 300,
-    height: 30,
-    borderColor: "orange",
-    borderWidth: 1
-  }
-});
