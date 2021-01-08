@@ -13,13 +13,14 @@ export default class App extends Component {
     }
   }
   changeView(){
-    Actions.secondView({text1: this.state.text1, text2: this.state.text2});
+    Actions.homeView();
   }
   
   render() {
     return (
       <View style={styles.container}>
         <Image source={require('../assets/287849.jpg')} style={styles.bigBox}/>
+        <Text>Iniciar Sesión</Text>
         <TextInput
           style={styles.mediumBox} 
           onChangeText={text1=>this.setState({text1: text1})}
@@ -30,7 +31,7 @@ export default class App extends Component {
         />
         <Button
           title="Siguiente"
-          color="#9b9b9b"
+          color="blue"
           onPress={()=>this.changeView()}
         />
       </View>
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   mediumBox: {
     width: 300,
     height: 30,
-    borderColor: "orange",
+    borderColor: "black",
     borderWidth: 1
   }
 });
