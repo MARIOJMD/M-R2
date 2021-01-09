@@ -5,9 +5,12 @@ import React, { Component } from 'react';
 export default class ArtistBox extends Component{
   constructor(props){
     super(props);
-  }
+}
   render(){
     const { image, name } = this.props.artist;
+    /*const image = this.props.image;
+    const name = this.props.name;*/
+
     return(
       <View style={ styles.artistBox }>
         <Image style={ styles.image } source={{ uri: image }} />

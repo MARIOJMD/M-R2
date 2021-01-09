@@ -1,21 +1,22 @@
-import ArtistBox from './ArtistBox';
+import ArtistBox from './ArtistBox.js';
 import React, { Component } from 'react';
 import { StyleSheet } from 'react';
 import { FlatList } from 'react-native';
-import ListView from 'deprecated-react-native-listview';
 
-export default class ArtistList extends Component<Props>{
+export default class ArtistList extends Component{
   constructor(props){
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    //const ds = new FlatList.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    const ds = this.props.artists;
     this.state = {
       dataSource: ds
-    }
   }
+}
 
   componentDidMount(){
     this.updateDataSource(this.props.artists)
   }
+
 
   UNSAFE_componentWillReceiveProps(newProps){
     if(newProps.artists !== this.props.artists){
@@ -24,20 +25,26 @@ export default class ArtistList extends Component<Props>{
   }
 
   updateDataSource = (data) => {
-    this.setState({ dataSource: this.state.dataSource.cloneWithRows(data) })
+    this.setState({ 
+      dataSource: this.state.dataSource
+      //.cloneWithRows(data)
+    })
+  }
+
+  renderListItem ( artist ){
+    console.log(artist)
+    return(
+      <ArtistBox artist={ artist }/>
+    );
   }
 
   render(){
-
+    let artist = this.state.dataSource;
+    //console.log(DATA);
     return(
-      <ListView
-        enableEmptySections = { true }
-        dataSource = { this.state.dataSource }
-        renderRow = {( artist )=>{
-          return(
-              <ArtistBox artist = { artist }/>
-          )
-        }}
+      <FlatList 
+        data = { artist }
+        renderItem = {() => this.renderListItem(artist)}
       />
     );
   }
