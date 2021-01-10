@@ -31,20 +31,31 @@ export default class ArtistList extends Component{
     })
   }
 
-  renderListItem ( artist ){
-    console.log(artist)
-    return(
-      <ArtistBox artist={ artist }/>
-    );
-  }
+ renderListItem( {artist} ){
+      //console.log(artist)
+      return(
+        <ArtistBox artist={{ artist }}/>
+      );
+    }
 
   render(){
+
     let artist = this.state.dataSource;
+    //console.log(artist)
+
+    /*const renderListItem = ( {artist} ) =>{
+      console.log(artist)
+      return(
+        <ArtistBox artist={ artist }/>
+      );
+    }*/
+
     //console.log(DATA);
     return(
       <FlatList 
         data = { artist }
-        renderItem = {() => this.renderListItem(artist)}
+        //renderItem={(artist) => this.renderListItem(artist)}
+        renderItem = {(artist) => this.renderListItem({artist})}
       />
     );
   }

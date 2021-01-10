@@ -2,18 +2,25 @@ import  { StyleSheet, Text, View, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
-export default class ArtistBox extends Component{
-  constructor(props){
-    super(props);
-}
+export default class ArtistBox extends Component<Props>{
+  /*constructor(props){
+    super(props)
+    this.state={
+      data: this.props.artist
+    }
+  }*/
+
   render(){
-    const { image, name } = this.props.artist;
-    /*const image = this.props.image;
-    const name = this.props.name;*/
+    //const {image, name} = this.props.artist;
+    //console.log(image, name);
+    //console.log(this.props.artist)
+    const artist = this.props.artist;
+    //let name = artist.name;
+    console.log(artist)
 
     return(
       <View style={ styles.artistBox }>
-        <Image style={ styles.image } source={{ uri: image }} />
+        <Image style={ styles.image } source={{ uri: image }}/>
         <View style={ styles.info }>
           <Text style={ styles.name }>{ name }</Text>
         </View>
