@@ -36,13 +36,11 @@ export default class ArtistList extends Component{
     }
 
   render(){
-
     let artist = this.state.dataSource;
-    
+
     return(
       <FlatList 
         data = { artist }
-        //renderItem={(artist) => this.renderListItem(artist)}
         renderItem = {(artist) => this.renderListItem({artist})}
       />
     );

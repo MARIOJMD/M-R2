@@ -12,11 +12,6 @@ export default class homeView extends Component {
       artists: null
     }
   }
-  
-
-  back(){
-    Actions.pop();
-  }
 
   componentDidMount(){
     getMusicData().then(data=>this.setState({ artists: data }));

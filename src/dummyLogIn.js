@@ -5,17 +5,11 @@ import {Actions, Scene, Router} from 'react-native-router-flux';
 
 
 export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      text1: "",
-      text2: ""
-    }
-  }
+
   changeView(){
     Actions.homeView();
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -23,11 +17,9 @@ export default class App extends Component {
         <Text>Iniciar Sesión</Text>
         <TextInput
           style={styles.mediumBox} 
-          onChangeText={text1=>this.setState({text1: text1})}
         />
         <TextInput
           style={styles.mediumBox}
-          onChangeText={text2=>this.setState({text2: text2})}
         />
         <Button
           title="Siguiente"
