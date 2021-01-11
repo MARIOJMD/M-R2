@@ -3,20 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
 export default class ArtistBox extends Component<Props>{
-  /*constructor(props){
-    super(props)
-    this.state={
-      data: this.props.artist
-    }
-  }*/
 
   render(){
-    //const {image, name} = this.props.artist;
-    //console.log(image, name);
-    //console.log(this.props.artist)
-    const artist = this.props.artist;
-    //let name = artist.name;
-    console.log(artist)
+    const {image, name} = this.props.artist.artist.item;
 
     return(
       <View style={ styles.artistBox }>

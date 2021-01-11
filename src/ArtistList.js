@@ -6,7 +6,6 @@ import { FlatList } from 'react-native';
 export default class ArtistList extends Component{
   constructor(props){
     super(props);
-    //const ds = new FlatList.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     const ds = this.props.artists;
     this.state = {
       dataSource: ds
@@ -27,12 +26,10 @@ export default class ArtistList extends Component{
   updateDataSource = (data) => {
     this.setState({ 
       dataSource: this.state.dataSource
-      //.cloneWithRows(data)
     })
   }
 
  renderListItem( {artist} ){
-      //console.log(artist)
       return(
         <ArtistBox artist={{ artist }}/>
       );
@@ -41,16 +38,7 @@ export default class ArtistList extends Component{
   render(){
 
     let artist = this.state.dataSource;
-    //console.log(artist)
-
-    /*const renderListItem = ( {artist} ) =>{
-      console.log(artist)
-      return(
-        <ArtistBox artist={ artist }/>
-      );
-    }*/
-
-    //console.log(DATA);
+    
     return(
       <FlatList 
         data = { artist }
