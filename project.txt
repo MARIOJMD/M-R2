@@ -1,2 +1,4 @@
-https://exp.host/@mmaganadebia/primerApp
- https://expo.io/@mmaganadebia/primerApp
+Manifest: https://exp.host/@mmaganadebia/primerApp
+Project page: https://expo.io/@mmaganadebia/primerApp
+github: https://github.com/MARIOJMD/M-R2/tree/Exmane
+
